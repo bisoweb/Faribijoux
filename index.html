@@ -893,6 +893,153 @@
             padding: 20px;
         }
 
+        /* Modal Styles */
+        .order-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: modalAppear 0.4s ease;
+        }
+        
+        @keyframes modalAppear {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            background-color: var(--gold);
+            padding: 20px;
+            color: var(--black);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--black);
+        }
+        
+        .modal-body {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .product-preview {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            border-bottom: 1px solid var(--light-gray);
+            padding-bottom: 20px;
+        }
+        
+        .preview-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .preview-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-details {
+            flex: 1;
+        }
+        
+        .product-details h4 {
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+        
+        .preview-price {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 5px 0;
+        }
+        
+        .order-form .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .order-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .order-form input, 
+        .order-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .order-form textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .modal-footer {
+            padding: 15px 25px;
+            background-color: var(--light-gray);
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
+        .btn-cancel {
+            background-color: var(--medium-gray);
+            color: var(--white);
+            border: none;
+        }
+        
+        .btn-cancel:hover {
+            background-color: var(--dark-gray);
+        }
+        
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         /* Media Queries */
         @media (min-width: 576px) {
             .hero h1 {
@@ -1002,13 +1149,7 @@
     <!-- Header -->
     <header id="header">
         <div class="container header-container">
-            <a href="#" class="logo">Fari<span>Bijoux</span>
-              <!--   <div class="benin-flag">
-                    <div class="green"></div>
-                    <div class="yellow"></div>
-                    <div class="red"></div>
-                </div>  -->
-            </a>
+            <a href="#" class="logo">Fari<span>Bijoux</span></a>
             <button class="nav-toggle" id="navToggle">
                 <i class="fas fa-bars"></i>
             </button>
@@ -1053,7 +1194,7 @@
                     <p>Depuis 2015, FariBijoux est la référence en matière de bijoux de qualité à Cotonou. Notre boutique propose une sélection soigneusement choisie de chaînes, montres, bracelets et bagues pour tous les goûts et tous les budgets.</p>
                     <p>Nous croyons en l'importance de la qualité et de l'authenticité. Chaque pièce que nous proposons est minutieusement sélectionnée pour sa beauté, sa durabilité et son excellent rapport qualité-prix.</p>
                     <p>Que vous cherchiez un cadeau spécial, un accessoire pour compléter votre tenue ou une pièce unique, notre équipe passionnée vous guidera dans votre choix avec expertise et convivialité.</p>
-                    <p class="signature">Fari Dossou, Fondatrice</p>
+                    <p class="signature">Fari, Fondatrice</p>
                 </div>
             </div>
         </div>
@@ -1126,7 +1267,7 @@
                             <h3>Chaîne Homme</h3>
                             <p>Chaîne en acier inoxydable pour homme</p>
                             <div class="product-price">35 000 FCFA</div>
-                            <a href="https://wa.me/22962822000?text=Je%20suis%20intéressé%20par%20Chaîne%20Homme" class="btn">Commander</a>
+                            <a href="#" class="btn order-btn" data-name="Chaîne Homme" data-desc="Chaîne en acier inoxydable pour homme" data-price="35 000 FCFA" data-img="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">Commander</a>
                         </div>
                     </div>
                     
@@ -1138,7 +1279,7 @@
                             <h3>Chaîne Diamant</h3>
                             <p>Chaîne en or blanc avec pendentif diamant</p>
                             <div class="product-price">85 000 FCFA</div>
-                            <a href="https://wa.me/22962822000?text=Je%20suis%20intéressé%20par%20Chaîne%20Diamant" class="btn">Commander</a>
+                            <a href="#" class="btn order-btn" data-name="Chaîne Diamant" data-desc="Chaîne en or blanc avec pendentif diamant" data-price="85 000 FCFA" data-img="https://images.unsplash.com/photo-1617113740007-0c0d0e0a5e1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">Commander</a>
                         </div>
                     </div>
                     
@@ -1150,7 +1291,7 @@
                             <h3>Chaîne Fantaisie</h3>
                             <p>Chaîne multicolore pour un style unique</p>
                             <div class="product-price">25 000 FCFA</div>
-                            <a href="https://wa.me/22962822000?text=Je%20suis%20intéressé%20par%20Chaîne%20Fantaisie" class="btn">Commander</a>
+                            <a href="#" class="btn order-btn" data-name="Chaîne Fantaisie" data-desc="Chaîne multicolore pour un style unique" data-price="25 000 FCFA" data-img="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">Commander</a>
                         </div>
                     </div>
                     
@@ -1162,7 +1303,7 @@
                             <h3>Chaîne Luxe</h3>
                             <p>Chaîne en or 18 carats avec médaillon</p>
                             <div class="product-price">120 000 FCFA</div>
-                            <a href="https://wa.me/22962822000?text=Je%20suis%20intéressé%20par%20Chaîne%20Luxe" class="btn">Commander</a>
+                            <a href="#" class="btn order-btn" data-name="Chaîne Luxe" data-desc="Chaîne en or 18 carats avec médaillon" data-price="120 000 FCFA" data-img="https://images.unsplash.com/photo-1617113740007-0c0d0e0a5e1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">Commander</a>
                         </div>
                     </div>
                 </div>
@@ -1183,7 +1324,7 @@
                             <h3>Montre Élégance</h3>
                             <p>Montre automatique en acier inoxydable</p>
                             <div class="product-price">75 000 FCFA</div>
-                            <a href="https://wa.me/22962822000?text=Je%20suis%20intéressé%20par%20Montre%20Élégance" class="btn">Commander</a>
+                            <a href="#" class="btn order-btn" data-name="Montre Élégance" data-desc="Montre automatique en acier inoxydable" data-price="75 000 FCFA" data-img="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">Commander</a>
                         </div>
                     </div>
                     
@@ -1195,7 +1336,7 @@
                             <h3>Montre Sport</h3>
                             <p>Montre digitale résistante à l'eau</p>
                             <div class="product-price">60 000 FCFA</div>
-                            <a href="https://wa.me/22962822000?text=Je%20suis%20intéressé%20par%20Montre%20Sport" class="btn">Commander</a>
+                            <a href="#" class="btn order-btn" data-name="Montre Sport" data-desc="Montre digitale résistante à l'eau" data-price="60 000 FCFA" data-img="https://images.unsplash.com/photo-1617113740007-0c0d0e0a5e1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">Commander</a>
                         </div>
                     </div>
                     
@@ -1207,7 +1348,7 @@
                             <h3>Montre Classique</h3>
                             <p>Montre en cuir véritable pour occasions spéciales</p>
                             <div class="product-price">55 000 FCFA</div>
-                            <a href="https://wa.me/22962822000?text=Je%20suis%20intéressé%20par%20Montre%20Classique" class="btn">Commander</a>
+                            <a href="#" class="btn order-btn" data-name="Montre Classique" data-desc="Montre en cuir véritable pour occasions spéciales" data-price="55 000 FCFA" data-img="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">Commander</a>
                         </div>
                     </div>
                     
@@ -1219,7 +1360,7 @@
                             <h3>Montre Luxe</h3>
                             <p>Montre en or 18 carats avec diamants</p>
                             <div class="product-price">150 000 FCFA</div>
-                            <a href="https://wa.me/22962822000?text=Je%20suis%20intéressé%20par%20Montre%20Luxe" class="btn">Commander</a>
+                            <a href="#" class="btn order-btn" data-name="Montre Luxe" data-desc="Montre en or 18 carats avec diamants" data-price="150 000 FCFA" data-img="https://images.unsplash.com/photo-1617113740007-0c0d0e0a5e1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">Commander</a>
                         </div>
                     </div>
                 </div>
@@ -1240,7 +1381,7 @@
                             <h3>Bracelet Éternité</h3>
                             <p>Bracelet en or 18K avec fermoir sécurisé</p>
                             <div class="product-price">120 000 FCFA</div>
-                            <a href="https://wa.me/22962822000?text=Je%20suis%20intéressé%20par%20Bracelet%20Éternité" class="btn">Commander</a>
+                            <a href="#" class="btn order-btn" data-name="Bracelet Éternité" data-desc="Bracelet en or 18K avec fermoir sécurisé" data-price="120 000 FCFA" data-img="https://images.unsplash.com/photo-1605733512304-7d25e6b6b8d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">Commander</a>
                         </div>
                     </div>
                     
@@ -1252,7 +1393,7 @@
                             <h3>Bracelet Cuir</h3>
                             <p>Bracelet en cuir véritable avec fermoir argenté</p>
                             <div class="product-price">45 000 FCFA</div>
-                            <a href="https://wa.me/22962822000?text=Je%20suis%20intéressé%20par%20Bracelet%20Cuir" class="btn">Commander</a>
+                            <a href="#" class="btn order-btn" data-name="Bracelet Cuir" data-desc="Bracelet en cuir véritable avec fermoir argenté" data-price="45 000 FCFA" data-img="https://images.unsplash.com/photo-1617113513740-0c0d0e0a5e1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">Commander</a>
                         </div>
                     </div>
                     
@@ -1264,7 +1405,7 @@
                             <h3>Bracelet Perles</h3>
                             <p>Bracelet en perles naturelles avec fermoir doré</p>
                             <div class="product-price">38 000 FCFA</div>
-                            <a href="https://wa.me/22962822000?text=Je%20suis%20intéressé%20par%20Bracelet%20Perles" class="btn">Commander</a>
+                            <a href="#" class="btn order-btn" data-name="Bracelet Perles" data-desc="Bracelet en perles naturelles avec fermoir doré" data-price="38 000 FCFA" data-img="https://images.unsplash.com/photo-1605733512304-7d25e6b6b8d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">Commander</a>
                         </div>
                     </div>
                     
@@ -1276,7 +1417,7 @@
                             <h3>Bracelet Sport</h3>
                             <p>Bracelet en silicone résistant pour activités</p>
                             <div class="product-price">25 000 FCFA</div>
-                            <a href="https://wa.me/22962822000?text=Je%20suis%20intéressé%20par%20Bracelet%20Sport" class="btn">Commander</a>
+                            <a href="#" class="btn order-btn" data-name="Bracelet Sport" data-desc="Bracelet en silicone résistant pour activités" data-price="25 000 FCFA" data-img="https://images.unsplash.com/photo-1617113513740-0c0d0e0a5e1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">Commander</a>
                         </div>
                     </div>
                 </div>
@@ -1297,7 +1438,7 @@
                             <h3>Bague Solitaire</h3>
                             <p>Platine avec diamant 0.5 carat</p>
                             <div class="product-price">95 000 FCFA</div>
-                            <a href="https://wa.me/22962822000?text=Je%20suis%20intéressé%20par%20Bague%20Solitaire" class="btn">Commander</a>
+                            <a href="#" class="btn order-btn" data-name="Bague Solitaire" data-desc="Platine avec diamant 0.5 carat" data-price="95 000 FCFA" data-img="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">Commander</a>
                         </div>
                     </div>
                     
@@ -1309,7 +1450,7 @@
                             <h3>Bague Alliance</h3>
                             <p>Or jaune 18 carats avec finition polie</p>
                             <div class="product-price">65 000 FCFA</div>
-                            <a href="https://wa.me/22962822000?text=Je%20suis%20intéressé%20par%20Bague%20Alliance" class="btn">Commander</a>
+                            <a href="#" class="btn order-btn" data-name="Bague Alliance" data-desc="Or jaune 18 carats avec finition polie" data-price="65 000 FCFA" data-img="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">Commander</a>
                         </div>
                     </div>
                     
@@ -1321,7 +1462,7 @@
                             <h3>Bague Cocktail</h3>
                             <p>Argent avec pierres colorées pour soirées</p>
                             <div class="product-price">42 000 FCFA</div>
-                            <a href="https://wa.me/22962822000?text=Je%20suis%20intéressé%20par%20Bague%20Cocktail" class="btn">Commander</a>
+                            <a href="#" class="btn order-btn" data-name="Bague Cocktail" data-desc="Argent avec pierres colorées pour soirées" data-price="42 000 FCFA" data-img="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">Commander</a>
                         </div>
                     </div>
                     
@@ -1333,7 +1474,7 @@
                             <h3>Bague Émeraude</h3>
                             <p>Or blanc avec émeraude naturelle centrale</p>
                             <div class="product-price">88 000 FCFA</div>
-                            <a href="https://wa.me/22962822000?text=Je%20suis%20intéressé%20par%20Bague%20Émeraude" class="btn">Commander</a>
+                            <a href="#" class="btn order-btn" data-name="Bague Émeraude" data-desc="Or blanc avec émeraude naturelle centrale" data-price="88 000 FCFA" data-img="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">Commander</a>
                         </div>
                     </div>
                 </div>
@@ -1602,6 +1743,55 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- Modal pour commander -->
+    <div class="order-modal" id="orderModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirmer votre commande</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="product-preview">
+                    <div class="preview-image">
+                        <img id="modalProductImage" src="" alt="Image produit">
+                    </div>
+                    <div class="product-details">
+                        <h4 id="modalProductName"></h4>
+                        <p id="modalProductDesc"></p>
+                        <div class="preview-price" id="modalProductPrice"></div>
+                    </div>
+                </div>
+                
+                <form class="order-form" id="orderForm">
+                    <div class="form-group">
+                        <label for="customerName">Votre nom complet *</label>
+                        <input type="text" id="customerName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerPhone">Votre numéro WhatsApp *</label>
+                        <input type="tel" id="customerPhone" required placeholder="+229 00 00 00 00">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerAddress">Adresse de livraison (optionnel)</label>
+                        <input type="text" id="customerAddress" placeholder="Rue, quartier, ville">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerNote">Notes supplémentaires (optionnel)</label>
+                        <textarea id="customerNote" placeholder="Couleur spécifique, taille, etc."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-cancel" id="cancelOrder">Annuler</button>
+                <button class="btn" id="confirmOrder">Envoyer la commande via WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Toggle mobile navigation
         const navToggle = document.getElementById('navToggle');
@@ -1714,6 +1904,100 @@
             const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(String(email).toLowerCase());
         }
+        
+        // Variables globales pour stocker les détails du produit sélectionné
+        let selectedProduct = null;
+        
+        // Fonction pour ouvrir la modale de commande
+        function openOrderModal(product) {
+            selectedProduct = product;
+            
+            // Remplir les informations du produit dans la modale
+            document.getElementById('modalProductImage').src = product.image;
+            document.getElementById('modalProductName').textContent = product.name;
+            document.getElementById('modalProductDesc').textContent = product.desc;
+            document.getElementById('modalProductPrice').textContent = product.price;
+            
+            // Afficher la modale
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+        
+        // Fonction pour fermer la modale
+        function closeOrderModal() {
+            document.getElementById('orderModal').style.display = 'none';
+            // Réinitialiser le formulaire
+            document.getElementById('orderForm').reset();
+        }
+        
+        // Fonction pour envoyer la commande via WhatsApp
+        function sendOrderViaWhatsApp() {
+            const name = document.getElementById('customerName').value;
+            const phone = document.getElementById('customerPhone').value;
+            const address = document.getElementById('customerAddress').value;
+            const note = document.getElementById('customerNote').value;
+            
+            // Créer le message WhatsApp
+            let message = `Bonjour FariBijoux, je souhaite commander le produit suivant :%0A%0A`;
+            message += `*Produit :* ${selectedProduct.name}%0A`;
+            message += `*Description :* ${selectedProduct.desc}%0A`;
+            message += `*Prix :* ${selectedProduct.price}%0A`;
+            message += `*Image :* ${selectedProduct.image}%0A%0A`;
+            message += `*Mes informations :*%0A`;
+            message += `- Nom : ${name}%0A`;
+            message += `- Téléphone : ${phone}%0A`;
+            
+            if (address) {
+                message += `- Adresse : ${address}%0A`;
+            }
+            
+            if (note) {
+                message += `%0A*Notes supplémentaires :*%0A${note}%0A%0A`;
+            }
+            
+            message += `Merci de me confirmer la disponibilité et les modalités de paiement.`;
+            
+            // Ouvrir WhatsApp
+            window.open(`https://wa.me/22962822000?text=${encodeURIComponent(message)}`, '_blank');
+            
+            // Fermer la modale
+            closeOrderModal();
+        }
+        
+        // Modifier les boutons "Commander" pour ouvrir la modale
+        document.querySelectorAll('.order-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Récupérer les détails du produit
+                const product = {
+                    name: this.dataset.name,
+                    desc: this.dataset.desc,
+                    price: this.dataset.price,
+                    image: this.dataset.img
+                };
+                
+                openOrderModal(product);
+            });
+        });
+        
+        // Gestionnaires d'événements pour la modale
+        document.getElementById('closeModal').addEventListener('click', closeOrderModal);
+        document.getElementById('cancelOrder').addEventListener('click', closeOrderModal);
+        document.getElementById('modalOverlay').addEventListener('click', closeOrderModal);
+        document.getElementById('confirmOrder').addEventListener('click', function() {
+            // Validation rapide du formulaire
+            if (!document.getElementById('customerName').value || !document.getElementById('customerPhone').value) {
+                alert('Veuillez remplir les champs obligatoires (nom et téléphone)');
+                return;
+            }
+            
+            sendOrderViaWhatsApp();
+        });
+        
+        // Empêcher la fermeture en cliquant dans la modale
+        document.querySelector('.modal-content').addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
     </script>
 </body>
 </html>
