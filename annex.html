@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FariBijoux - Politiques, FAQ et Garantie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark-gold: #b8860b;
+            --light-gold: #f5e7c1;
+            --black: #1a1a1a;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            border: 2px solid var(--gold);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--black);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-toggle {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--black);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        nav {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            transform: translateY(-150%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        nav.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            margin-bottom: 20px;
+        }
+
+        nav ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        nav ul li a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--gold);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Legal Pages */
+        .legal-hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('https://images.unsplash.com/photo-1581287053822-fd7bf4f4bfec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 70px;
+        }
+
+        .legal-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .legal-content {
+            background-color: var(--light-gray);
+            padding: 60px 0;
+        }
+
+        .legal-container {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 40px;
+        }
+
+        .legal-section {
+            margin-bottom: 50px;
+        }
+
+        .legal-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .legal-section h2 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-gold);
+            font-size: 1.8rem;
+        }
+
+        .legal-section h3 {
+            color: var(--dark-gold);
+            margin: 25px 0 15px;
+            font-size: 1.4rem;
+        }
+
+        .legal-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .legal-section ul, .legal-section ol {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .legal-section li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+            border-left: 3px solid var(--gold);
+            padding-left: 15px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .faq-question::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 10px 0;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .guarantee-badge {
+            background: var(--light-gold);
+            color: var(--dark-gold);
+            padding: 8px 15px;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 5px 0 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--light-gray);
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            max-width: 400px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+            z-index: 99;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--dark-gold);
+            transform: translateY(-5px);
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .nav-toggle {
+                display: none;
+            }
+            
+            nav {
+                position: static;
+                width: auto;
+                background: transparent;
+                box-shadow: none;
+                padding: 0;
+                transform: none;
+                opacity: 1;
+            }
+            
+            nav ul {
+                display: flex;
+                gap: 25px;
+            }
+            
+            nav ul li {
+                margin-bottom: 0;
+            }
+
+            .legal-container {
+                padding: 60px;
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .footer-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .legal-hero {
+                height: 400px;
+            }
+
+            .legal-hero h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Fari<span>Bijoux</span></a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="navbar">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#products">Produits</a></li>
+                    <li><a href="index.html#about">À propos</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="legal.html" class="active">Mentions légales</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="legal-hero">
+        <div class="container hero-content">
+            <h1>Mentions Légales et Informations</h1>
+            <p>Politiques de confidentialité, FAQ et garanties de nos produits</p>
+        </div>
+    </section>
+
+    <!-- Legal Content -->
+    <section class="legal-content">
+        <div class="container">
+            <div class="legal-container">
+                <!-- Politique de Confidentialité -->
+                <div class="legal-section">
+                    <h2>Politique de Confidentialité</h2>
+                    <p><em>Dernière mise à jour : 30 juillet 2023</em></p>
+                    
+                    <h3>1. Introduction</h3>
+                    <p>Chez FariBijoux, nous nous engageons à protéger votre vie privée. Cette politique explique comment nous collectons, utilisons et protégeons vos informations personnelles lorsque vous visitez notre site ou effectuez un achat.</p>
+                    
+                    <h3>2. Informations que nous collectons</h3>
+                    <p>Nous collectons les informations suivantes :</p>
+                    <ul>
+                        <li>Informations d'identification (nom, adresse email, numéro de téléphone)</li>
+                        <li>Informations de paiement (traitées de manière sécurisée via nos prestataires de paiement)</li>
+                        <li>Données de navigation et d'utilisation du site</li>
+                        <li>Historique des commandes et préférences d'achat</li>
+                    </ul>
+                    
+                    <h3>3. Comment nous utilisons vos informations</h3>
+                    <p>Vos informations sont utilisées pour :</p>
+                    <ul>
+                        <li>Traiter et livrer vos commandes</li>
+                        <li>Communiquer avec vous concernant vos commandes</li>
+                        <li>Vous fournir un service client exceptionnel</li>
+                        <li>Améliorer notre site web et nos produits</li>
+                        <li>Vous envoyer des offres promotionnelles (si vous avez donné votre consentement)</li>
+                    </ul>
+                    
+                    <h3>4. Partage des informations</h3>
+                    <p>Nous ne vendons ni ne louons vos informations personnelles. Nous pouvons partager vos informations avec :</p>
+                    <ul>
+                        <li>Prestataires de services tiers (livraison, traitement des paiements)</li>
+                        <li>Obligations légales (si requis par la loi)</li>
+                    </ul>
+                    
+                    <h3>5. Sécurité des données</h3>
+                    <p>Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, altération ou destruction.</p>
+                    
+                    <h3>6. Vos droits</h3>
+                    <p>Vous avez le droit de :</p>
+                    <ul>
+                        <li>Accéder à vos données personnelles</li>
+                        <li>Demander la correction de données inexactes</li>
+                        <li>Demander la suppression de vos données</li>
+                        <li>Vous opposer au traitement de vos données</li>
+                        <li>Retirer votre consentement à tout moment</li>
+                    </ul>
+                    <p>Pour exercer ces droits, contactez-nous à <a href="mailto:privacy@faribijoux.bj">privacy@faribijoux.bj</a></p>
+                    
+                    <h3>7. Cookies</h3>
+                    <p>Notre site utilise des cookies pour améliorer votre expérience. Vous pouvez gérer vos préférences en matière de cookies via les paramètres de votre navigateur.</p>
+                    
+                    <h3>8. Modifications de la politique</h3>
+                    <p>Nous pouvons mettre à jour cette politique occasionnellement. La version la plus récente sera toujours disponible sur cette page.</p>
+                </div>
+                
+                <!-- FAQ -->
+                <div class="legal-section">
+                    <h2>Foire Aux Questions (FAQ)</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Comment passer commande sur FariBijoux ?</div>
+                        <div class="faq-answer">
+                            <p>Vous pouvez commander directement sur notre site en cliquant sur le bouton "Commander" d'un produit, ou nous contacter via WhatsApp au +229 62 82 20 00. Notre équipe vous guidera à travers le processus de commande.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Quels sont les modes de paiement acceptés ?</div>
+                        <div class="faq-answer">
+                            <p>Nous acceptons :</p>
+                            <ul>
+                                <li>Mobile Money (MTN, Moov)</li>
+                                <li>Virement bancaire</li>
+                                <li>Espèces à la boutique</li>
+                                <li>Paiement à la livraison (Cotonou uniquement)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Livrez-vous à domicile ?</div>
+                        <div class="faq-answer">
+                            <p>Oui, nous livrons partout à Cotonou gratuitement pour les commandes supérieures à 100 000 FCFA. Pour les autres villes du Bénin, des frais de livraison supplémentaires s'appliquent.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Quelle est la durée de livraison ?</div>
+                        <div class="faq-answer">
+                            <p>À Cotonou : 24-48 heures après confirmation de paiement. Pour les autres villes : 3-5 jours ouvrés. Pour les commandes spéciales ou gravures personnalisées, comptez 3-7 jours supplémentaires.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Puis-je retourner un produit ?</div>
+                        <div class="faq-answer">
+                            <p>Oui, vous disposez de 14 jours pour retourner un produit non utilisé, dans son emballage d'origine avec le ticket de caisse. Les frais de retour sont à votre charge. Les produits personnalisés (gravés) ne peuvent être retournés.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Proposez-vous des services de gravure ?</div>
+                        <div class="faq-answer">
+                            <p>Oui, nous proposons un service de gravure personnalisé sur la plupart de nos bijoux. Le prix varie selon la complexité et la longueur de la gravure. Contactez-nous pour plus de détails.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Comment entretenir mes bijoux ?</div>
+                        <div class="faq-answer">
+                            <p>Pour préserver l'éclat de vos bijoux :</p>
+                            <ul>
+                                <li>Évitez le contact avec les produits chimiques (parfums, lotions)</li>
+                                <li>Retirez vos bijoux avant de nager ou de faire du sport</li>
+                                <li>Nettoyez avec un chiffon doux et sec</li>
+                                <li>Rangez séparément dans une boîte à bijoux</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Comment vérifier l'authenticité de mes bijoux ?</div>
+                        <div class="faq-answer">
+                            <p>Tous nos bijoux en or et argent sont estampillés avec leur pureté (ex: 18K, 925). Nous fournissons un certificat d'authenticité pour les produits avec pierres précieuses. Vous pouvez également nous rendre visite à la boutique pour une vérification gratuite.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Garantie -->
+                <div class="legal-section">
+                    <h2>Garantie Produit</h2>
+                    <div class="guarantee-badge">Garantie 1 an sur tous nos bijoux</div>
+                    
+                    <h3>1. Couverture de la garantie</h3>
+                    <p>Notre garantie couvre :</p>
+                    <ul>
+                        <li>Défauts de matériaux et de fabrication</li>
+                        <li>Cassure des fermoirs dans des conditions normales d'utilisation</li>
+                        <li>Chute des pierres précieuses (hors choc violent)</li>
+                        <li>Décoloration anormale des métaux</li>
+                    </ul>
+                    
+                    <h3>2. Exclusions</h3>
+                    <p>La garantie ne couvre pas :</p>
+                    <ul>
+                        <li>Usure normale et vieillissement du bijou</li>
+                        <li>Dommages dus à une mauvaise utilisation ou négligence</li>
+                        <li>Déformations causées par des chocs ou écrasements</li>
+                        <li>Bijoux modifiés ou réparés par un tiers</li>
+                        <li>Bijoux endommagés par l'exposition à des produits chimiques</li>
+                    </ul>
+                    
+                    <h3>3. Durée de la garantie</h3>
+                    <p>La garantie est valable 1 an à compter de la date d'achat. Pour les produits avec pierres précieuses, la garantie est étendue à 2 ans.</p>
+                    
+                    <h3>4. Processus de réclamation</h3>
+                    <p>En cas de problème couvert par la garantie :</p>
+                    <ol>
+                        <li>Contactez-nous par téléphone ou WhatsApp (+229 62 82 20 00) avec une photo du produit et votre ticket d'achat</li>
+                        <li>Notre équipe évaluera si le problème est couvert par la garantie</li>
+                        <li>Si la réclamation est acceptée, vous pouvez :
+                            <ul>
+                                <li>Faire réparer le bijou gratuitement</li>
+                                <li>Échanger le produit contre un équivalent</li>
+                                <li>Obtenir un remboursement (si la réparation ou l'échange n'est pas possible)</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <h3>5. Services de réparation</h3>
+                    <p>Nous proposons également des services de réparation pour les dommages non couverts par la garantie :</p>
+                    <ul>
+                        <li>Remplacement de fermoir : 5 000 - 15 000 FCFA</li>
+                        <li>Réparation de chaîne : 10 000 - 30 000 FCFA</li>
+                        <li>Sertissage de pierre : 15 000 - 50 000 FCFA</li>
+                        <li>Polissage et nettoyage professionnel : 3 000 - 10 000 FCFA</li>
+                    </ul>
+                    
+                    <h3>6. Service après-vente</h3>
+                    <p>Nous offrons un nettoyage et une inspection gratuits de vos bijoux tous les 6 mois à notre boutique de Cotonou. C'est l'occasion de vérifier la solidité des sertissages et de redonner de l'éclat à vos bijoux préférés.</p>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="legal-section">
+                    <h2>Nous contacter</h2>
+                    <p>Pour toute question concernant notre politique de confidentialité, nos conditions ou notre garantie :</p>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> Email : legal@faribijoux.bj</li>
+                        <li><i class="fas fa-phone"></i> Téléphone : +229 62 82 20 00</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Adresse : Rue du Commerce, Quartier Cadjehoun, Cotonou, Bénin</li>
+                        <li><i class="fas fa-clock"></i> Horaires : Lun-Sam 9h-19h, Dim 10h-15h</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">Fari<span>Bijoux</span></div>
+                    <p>Votre bijouterie de confiance à Cotonou. Nous proposons des chaînes, montres, bracelets et bagues de qualité à prix compétitifs.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/faribijoux" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/faribijoux" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/22962822000" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://pinterest.com/faribijoux" target="_blank" title="Pinterest">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Catégories</h4>
+                    <ul>
+                        <li><a href="index.html#chains">Chaînes</a></li>
+                        <li><a href="index.html#watches">Montres</a></li>
+                        <li><a href="index.html#bracelets">Bracelets</a></li>
+                        <li><a href="index.html#rings">Bagues</a></li>
+                        <li><a href="index.html#testimonials">Nouveautés</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Liens Utiles</h4>
+                    <ul>
+                        <li><a href="index.html#about">À propos de nous</a></li>
+                        <li><a href="legal.html">Politique de confidentialité</a></li>
+                        <li><a href="legal.html#faq">FAQ</a></li>
+                        <li><a href="legal.html#garantie">Garantie</a></li>
+                        <li><a href="#">Conditions générales</a></li>
+                        <li><a href="#">Livraison & Retours</a></li>
+                        <li><a href="#">Entretien des bijoux</a></li>
+                        <li><a href="#">Guide des tailles</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Rue du Commerce, Cadjehoun</li>
+                        <li><i class="fas fa-phone"></i> +229 62 82 20 00</li>
+                        <li><i class="fas fa-envelope"></i> contact@faribijoux.bj</li>
+                        <li><i class="fas fa-clock"></i> Lun-Sam: 9h-19h, Dim: 10h-15h</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 FariBijoux - Bijouterie à Cotonou, Bénin. Tous droits réservés.</p>
+                <p>SIRET: 12345678901234 | TVA Intra: FR00123456789</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Toggle mobile navigation
+        const navToggle = document.getElementById('navToggle');
+        const navbar = document.getElementById('navbar');
+        
+        navToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            navToggle.innerHTML = navbar.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+                navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
