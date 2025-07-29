@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FariBijoux - Bijouterie de Qualité à Cotonou</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark-gold: #b8860b;
+            --light-gold: #f5e7c1;
+            --black: #1a1a1a;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+            --benin-green: #008751;
+            --benin-red: #e8112d;
+            --benin-yellow: #fcd116;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            border: 2px solid var(--gold);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--black);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--black);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .logo .benin-flag {
+            display: inline-flex;
+            height: 24px;
+            width: 36px;
+            margin-left: 10px;
+        }
+
+        .benin-flag .green {
+            background: var(--benin-green);
+            flex: 1;
+        }
+
+        .benin-flag .yellow {
+            background: var(--benin-yellow);
+            flex: 1;
+        }
+
+        .benin-flag .red {
+            background: var(--benin-red);
+            flex: 1;
+        }
+
+        .nav-toggle {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--black);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        nav {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            transform: translateY(-150%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        nav.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            margin-bottom: 20px;
+        }
+
+        nav ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        nav ul li a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--gold);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* About */
+        .about {
+            background-color: var(--light-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--medium-gray);
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* Categories */
+        .categories {
+            background-color: var(--white);
+            padding: 60px 0;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .category-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .category-card:hover .category-image {
+            transform: scale(1.1);
+        }
+
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .category-overlay h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .category-overlay p {
+            margin-bottom: 20px;
+            max-width: 300px;
+        }
+
+        /* Collections */
+        .collections-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background: transparent;
+            border: 2px solid var(--gold);
+            border-radius: 50px;
+            color: var(--gold);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .collection-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .collection-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .collection-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .product-type {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gold);
+            color: var(--black);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        /* Product Categories */
+        .product-categories {
+            padding: 60px 0;
+            background-color: var(--light-gray);
+        }
+
+        .category-section {
+            margin-bottom: 60px;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .category-title {
+            font-size: 2rem;
+            color: var(--black);
+        }
+
+        .category-products {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1581287053822-fd7bf4f4bfec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover fixed;
+            color: var(--white);
+        }
+
+        .testimonials .section-title h2 {
+            color: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .client {
+            display: flex;
+            align-items: center;
+        }
+
+        .client img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .client-info h4 {
+            color: var(--white);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .client-info p {
+            color: var(--light-gold);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            background: var(--light-gold);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-icon i {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .contact-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-form {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--light-gray);
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            max-width: 400px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .newsletter p {
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .payment-methods i {
+            font-size: 2rem;
+            color: var(--light-gray);
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+            z-index: 99;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--dark-gold);
+            transform: translateY(-5px);
+        }
+
+        /* Location Map */
+        .location-map {
+            margin-top: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+            background: #e9e9e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Media Queries */
+        @media (min-width: 576px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            .collections-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .category-products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .nav-toggle {
+                display: none;
+            }
+            
+            nav {
+                position: static;
+                width: auto;
+                background: transparent;
+                box-shadow: none;
+                padding: 0;
+                transform: none;
+                opacity: 1;
+            }
+            
+            nav ul {
+                display: flex;
+                gap: 25px;
+            }
+            
+            nav ul li {
+                margin-bottom: 0;
+            }
+            
+            .about-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .category-products {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hero h1 {
+                font-size: 3.8rem;
+            }
+            
+            .collections-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .contact-info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .category-products {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .hero h1 {
+                font-size: 4.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Fari<span>Bijoux</span>
+              <!--   <div class="benin-flag">
+                    <div class="green"></div>
+                    <div class="yellow"></div>
+                    <div class="red"></div>
+                </div>  -->
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="navbar">
+                <ul>
+                    <li><a href="#home" class="active">Accueil</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#categories">Catégories</a></li>
+                    <li><a href="#products">Produits</a></li>
+                    <li><a href="#testimonials">Témoignages</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Bijoux de qualité exceptionnelle à Cotonou</h1>
+            <p>Découvrez notre collection exclusive de chaînes, montres, bracelets et bagues</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn">Découvrir nos produits</a>
+                <a href="#contact" class="btn btn-outline">Visitez notre boutique</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>À propos de FariBijoux</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1581287053822-fd7bf4f4bfec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Boutique FariBijoux">
+                </div>
+                <div class="about-text">
+                    <h2>Votre bijouterie de confiance à Cotonou</h2>
+                    <p>Depuis 2015, FariBijoux est la référence en matière de bijoux de qualité à Cotonou. Notre boutique propose une sélection soigneusement choisie de chaînes, montres, bracelets et bagues pour tous les goûts et tous les budgets.</p>
+                    <p>Nous croyons en l'importance de la qualité et de l'authenticité. Chaque pièce que nous proposons est minutieusement sélectionnée pour sa beauté, sa durabilité et son excellent rapport qualité-prix.</p>
+                    <p>Que vous cherchiez un cadeau spécial, un accessoire pour compléter votre tenue ou une pièce unique, notre équipe passionnée vous guidera dans votre choix avec expertise et convivialité.</p>
+                    <p class="signature">Fari Dossou, Fondatrice</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Catégories</h2>
+                <div class="divider"></div>
+                <p>Découvrez notre gamme complète de bijoux et accessoires</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Chaînes" class="category-image">
+                    <div class="category-overlay">
+                        <h3>Chaînes</h3>
+                        <p>Colliers élégants pour compléter votre style</p>
+                        <a href="#chains" class="btn">Voir la collection</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Montres" class="category-image">
+                    <div class="category-overlay">
+                        <h3>Montres</h3>
+                        <p>Élégantes et fonctionnelles, pour homme et femme</p>
+                        <a href="#watches" class="btn">Voir la collection</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1605733512304-7d25e6b6b8d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bracelets" class="category-image">
+                    <div class="category-overlay">
+                        <h3>Bracelets</h3>
+                        <p>En or, argent et cuir pour toutes les occasions</p>
+                        <a href="#bracelets" class="btn">Voir la collection</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bagues" class="category-image">
+                    <div class="category-overlay">
+                        <h3>Bagues</h3>
+                        <p>Solitaire, alliance ou cocktail pour toutes les occasions</p>
+                        <a href="#rings" class="btn">Voir la collection</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="product-categories" id="products">
+        <div class="container">
+            <!-- Chaînes -->
+            <div class="category-section" id="chains">
+                <div class="category-header">
+                    <h2 class="category-title">Chaînes</h2>
+                    <a href="#contact" class="btn">Commander maintenant</a>
+                </div>
+                <div class="category-products">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Chaîne Homme">
+                        </div>
+                        <div class="product-info">
+                            <h3>Chaîne Homme</h3>
+                            <p>Chaîne en acier inoxydable pour homme</p>
+                            <div class="product-price">35 000 FCFA</div>
+                            <a href="https://wa.me/22960123456?text=Je%20suis%20intéressé%20par%20Chaîne%20Homme" class="btn">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1617113740007-0c0d0e0a5e1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Chaîne Diamant">
+                        </div>
+                        <div class="product-info">
+                            <h3>Chaîne Diamant</h3>
+                            <p>Chaîne en or blanc avec pendentif diamant</p>
+                            <div class="product-price">85 000 FCFA</div>
+                            <a href="https://wa.me/22960123456?text=Je%20suis%20intéressé%20par%20Chaîne%20Diamant" class="btn">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Chaîne Fantaisie">
+                        </div>
+                        <div class="product-info">
+                            <h3>Chaîne Fantaisie</h3>
+                            <p>Chaîne multicolore pour un style unique</p>
+                            <div class="product-price">25 000 FCFA</div>
+                            <a href="https://wa.me/22960123456?text=Je%20suis%20intéressé%20par%20Chaîne%20Fantaisie" class="btn">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1617113740007-0c0d0e0a5e1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Chaîne Luxe">
+                        </div>
+                        <div class="product-info">
+                            <h3>Chaîne Luxe</h3>
+                            <p>Chaîne en or 18 carats avec médaillon</p>
+                            <div class="product-price">120 000 FCFA</div>
+                            <a href="https://wa.me/22960123456?text=Je%20suis%20intéressé%20par%20Chaîne%20Luxe" class="btn">Commander</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Montres -->
+            <div class="category-section" id="watches">
+                <div class="category-header">
+                    <h2 class="category-title">Montres</h2>
+                    <a href="#contact" class="btn">Commander maintenant</a>
+                </div>
+                <div class="category-products">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Montre Élégance">
+                        </div>
+                        <div class="product-info">
+                            <h3>Montre Élégance</h3>
+                            <p>Montre automatique en acier inoxydable</p>
+                            <div class="product-price">75 000 FCFA</div>
+                            <a href="https://wa.me/22960123456?text=Je%20suis%20intéressé%20par%20Montre%20Élégance" class="btn">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1617113740007-0c0d0e0a5e1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Montre Sport">
+                        </div>
+                        <div class="product-info">
+                            <h3>Montre Sport</h3>
+                            <p>Montre digitale résistante à l'eau</p>
+                            <div class="product-price">60 000 FCFA</div>
+                            <a href="https://wa.me/22960123456?text=Je%20suis%20intéressé%20par%20Montre%20Sport" class="btn">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Montre Classique">
+                        </div>
+                        <div class="product-info">
+                            <h3>Montre Classique</h3>
+                            <p>Montre en cuir véritable pour occasions spéciales</p>
+                            <div class="product-price">55 000 FCFA</div>
+                            <a href="https://wa.me/22960123456?text=Je%20suis%20intéressé%20par%20Montre%20Classique" class="btn">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1617113740007-0c0d0e0a5e1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Montre Luxe">
+                        </div>
+                        <div class="product-info">
+                            <h3>Montre Luxe</h3>
+                            <p>Montre en or 18 carats avec diamants</p>
+                            <div class="product-price">150 000 FCFA</div>
+                            <a href="https://wa.me/22960123456?text=Je%20suis%20intéressé%20par%20Montre%20Luxe" class="btn">Commander</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bracelets -->
+            <div class="category-section" id="bracelets">
+                <div class="category-header">
+                    <h2 class="category-title">Bracelets</h2>
+                    <a href="#contact" class="btn">Commander maintenant</a>
+                </div>
+                <div class="category-products">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1605733512304-7d25e6b6b8d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bracelet Éternité">
+                        </div>
+                        <div class="product-info">
+                            <h3>Bracelet Éternité</h3>
+                            <p>Bracelet en or 18K avec fermoir sécurisé</p>
+                            <div class="product-price">120 000 FCFA</div>
+                            <a href="https://wa.me/22960123456?text=Je%20suis%20intéressé%20par%20Bracelet%20Éternité" class="btn">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1617113513740-0c0d0e0a5e1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bracelet Cuir">
+                        </div>
+                        <div class="product-info">
+                            <h3>Bracelet Cuir</h3>
+                            <p>Bracelet en cuir véritable avec fermoir argenté</p>
+                            <div class="product-price">45 000 FCFA</div>
+                            <a href="https://wa.me/22960123456?text=Je%20suis%20intéressé%20par%20Bracelet%20Cuir" class="btn">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1605733512304-7d25e6b6b8d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bracelet Perles">
+                        </div>
+                        <div class="product-info">
+                            <h3>Bracelet Perles</h3>
+                            <p>Bracelet en perles naturelles avec fermoir doré</p>
+                            <div class="product-price">38 000 FCFA</div>
+                            <a href="https://wa.me/22960123456?text=Je%20suis%20intéressé%20par%20Bracelet%20Perles" class="btn">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1617113513740-0c0d0e0a5e1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bracelet Sport">
+                        </div>
+                        <div class="product-info">
+                            <h3>Bracelet Sport</h3>
+                            <p>Bracelet en silicone résistant pour activités</p>
+                            <div class="product-price">25 000 FCFA</div>
+                            <a href="https://wa.me/22960123456?text=Je%20suis%20intéressé%20par%20Bracelet%20Sport" class="btn">Commander</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bagues -->
+            <div class="category-section" id="rings">
+                <div class="category-header">
+                    <h2 class="category-title">Bagues</h2>
+                    <a href="#contact" class="btn">Commander maintenant</a>
+                </div>
+                <div class="category-products">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bague Solitaire">
+                        </div>
+                        <div class="product-info">
+                            <h3>Bague Solitaire</h3>
+                            <p>Platine avec diamant 0.5 carat</p>
+                            <div class="product-price">95 000 FCFA</div>
+                            <a href="https://wa.me/22960123456?text=Je%20suis%20intéressé%20par%20Bague%20Solitaire" class="btn">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bague Alliance">
+                        </div>
+                        <div class="product-info">
+                            <h3>Bague Alliance</h3>
+                            <p>Or jaune 18 carats avec finition polie</p>
+                            <div class="product-price">65 000 FCFA</div>
+                            <a href="https://wa.me/22960123456?text=Je%20suis%20intéressé%20par%20Bague%20Alliance" class="btn">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bague Cocktail">
+                        </div>
+                        <div class="product-info">
+                            <h3>Bague Cocktail</h3>
+                            <p>Argent avec pierres colorées pour soirées</p>
+                            <div class="product-price">42 000 FCFA</div>
+                            <a href="https://wa.me/22960123456?text=Je%20suis%20intéressé%20par%20Bague%20Cocktail" class="btn">Commander</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bague Émeraude">
+                        </div>
+                        <div class="product-info">
+                            <h3>Bague Émeraude</h3>
+                            <p>Or blanc avec émeraude naturelle centrale</p>
+                            <div class="product-price">88 000 FCFA</div>
+                            <a href="https://wa.me/22960123456?text=Je%20suis%20intéressé%20par%20Bague%20Émeraude" class="btn">Commander</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Témoignages Clients</h2>
+                <div class="divider"></div>
+                <p>Ce que nos clients disent de nous</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"J'ai acheté une montre chez FariBijoux il y a deux ans et elle fonctionne toujours parfaitement. Le service client est exceptionnel et les prix sont très compétitifs."</p>
+                    <div class="client">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Koffi D.">
+                        <div class="client-info">
+                            <h4>Koffi D.</h4>
+                            <p>Abomey-Calavi</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"Les bagues que j'ai achetées sont magnifiques et de grande qualité. J'ai reçu de nombreux compliments. Je recommande vivement FariBijoux!"</p>
+                    <div class="client">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Aïcha T.">
+                        <div class="client-info">
+                            <h4>Aïcha T.</h4>
+                            <p>Cotonou</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"J'ai offert un bracelet à ma femme pour notre anniversaire. Elle l'adore! La qualité est au rendez-vous et l'emballage était très élégant. Merci FariBijoux!"</p>
+                    <div class="client">
+                        <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Marcel S.">
+                        <div class="client-info">
+                            <h4>Marcel S.</h4>
+                            <p>Porto-Novo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact & Localisation</h2>
+                <div class="divider"></div>
+                <p>Visitez notre boutique à Cotonou</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Adresse</h3>
+                            <p>Rue du Commerce, Quartier Cadjehoun</p>
+                            <p>Cotonou, Bénin</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Téléphone</h3>
+                            <p>+229 60 12 34 56</p>
+                            <p>+229 97 89 01 23</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>contact@faribijoux.bj</p>
+                            <p>info@faribijoux.bj</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Horaires</h3>
+                            <p>Lun-Sam: 9h-19h</p>
+                            <p>Dim: 10h-15h</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Réseaux sociaux</h3>
+                            <div class="social-links">
+                                <a href="https://facebook.com/faribijoux" target="_blank" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://instagram.com/faribijoux" target="_blank" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://wa.me/22960123456" target="_blank" title="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="https://pinterest.com/faribijoux" target="_blank" title="Pinterest">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="location-map">
+                        <div class="map-overlay">Cotonou, Bénin<br><small>Rue du Commerce, Quartier Cadjehoun</small></div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Contactez-nous</h3>
+                    <p>Une question sur nos produits? Envoyez-nous un message</p>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Sujet *</label>
+                            <select id="subject" required>
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="question">Question sur un produit</option>
+                                <option value="commande">Commande spéciale</option>
+                                <option value="reparation">Réparation de bijoux</option>
+                                <option value="rendezvous">Prendre rendez-vous</option>
+                                <option value="autre">Autre demande</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" placeholder="Décrivez votre demande..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" required> J'accepte la politique de confidentialité
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">Fari<span>Bijoux</span></div>
+                    <p>Votre bijouterie de confiance à Cotonou. Nous proposons des chaînes, montres, bracelets et bagues de qualité à prix compétitifs.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/faribijoux" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/faribijoux" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/22960123456" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://pinterest.com/faribijoux" target="_blank" title="Pinterest">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Catégories</h4>
+                    <ul>
+                        <li><a href="#chains">Chaînes</a></li>
+                        <li><a href="#watches">Montres</a></li>
+                        <li><a href="#bracelets">Bracelets</a></li>
+                        <li><a href="#rings">Bagues</a></li>
+                        <li><a href="#testimonials">Nouveautés</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Liens Utiles</h4>
+                    <ul>
+                        <li><a href="#about">À propos de nous</a></li>
+                        <li><a href="#">Livraison & Retours</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Conditions générales</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Garantie produits</a></li>
+                        <li><a href="#">Entretien des bijoux</a></li>
+                        <li><a href="#">Guide des tailles</a></li>
+                    </ul>
+                </div>
+                
+                <div class="newsletter">
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p>Inscrivez-vous pour recevoir nos promotions et nouveautés</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Votre email" required>
+                        <button type="submit" class="btn">S'inscrire</button>
+                    </form>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa" title="Visa"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                        <i class="fab fa-cc-paypal" title="PayPal"></i>
+                        <i class="fas fa-money-bill-wave" title="Espèces"></i>
+                        <i class="fas fa-mobile-alt" title="Paiement mobile"></i>
+                    </div>
+                    <div class="payment-methods">
+                        <i class="fas fa-truck" title="Livraison à domicile"></i>
+                        <i class="fas fa-store" title="Retrait en boutique"></i>
+                        <i class="fas fa-gift" title="Emballage cadeau"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 FariBijoux - Bijouterie à Cotonou, Bénin. Tous droits réservés.</p>
+                <p>SIRET: 12345678901234 | TVA Intra: FR00123456789</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Toggle mobile navigation
+        const navToggle = document.getElementById('navToggle');
+        const navbar = document.getElementById('navbar');
+        
+        navToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            navToggle.innerHTML = navbar.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+                navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Contact form WhatsApp redirection
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value || 'Non fourni';
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Create WhatsApp message
+                const whatsappMessage = encodeURIComponent(
+                    `Nouveau message de ${name}:\n\n` +
+                    `Sujet: ${subject}\n` +
+                    `Email: ${email}\n` +
+                    `Téléphone: ${phone}\n\n` +
+                    `Message:\n${message}`
+                );
+                
+                // Open WhatsApp
+                window.open(`https://wa.me/22960123456?text=${whatsappMessage}`, '_blank');
+                
+                // Reset form
+                this.reset();
+            });
+        }
+        
+        // Newsletter form
+        const newsletterForm = document.getElementById('newsletterForm');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                const email = emailInput.value;
+                
+                if (!validateEmail(email)) {
+                    alert('Veuillez entrer une adresse email valide');
+                    return;
+                }
+                
+                // Show success message
+                alert(`Merci ! Vous êtes maintenant inscrit à notre newsletter avec l'adresse: ${email}`);
+                
+                // Reset form
+                this.reset();
+            });
+        }
+        
+        // Email validation function
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+    </script>
+</body>
+</html>
