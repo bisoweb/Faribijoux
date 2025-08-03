@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux Anniversaire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            position: relative;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+            max-width: 800px;
+            width: 90%;
+        }
+
+        .header {
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            color: #e94560;
+            text-shadow: 0 0 15px rgba(233, 69, 96, 0.7);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 3.5s;
+        }
+
+        .heart-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 3rem;
+        }
+
+        #heart-svg {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: #e94560;
+            stroke-width: 8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawHeart 5s ease-in-out forwards;
+            filter: drop-shadow(0 0 15px rgba(233, 69, 96, 0.5));
+        }
+
+        .heart-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: #e94560;
+            border-radius: 50%;
+            opacity: 0;
+            animation: pulseHeart 2s 4.5s forwards;
+            box-shadow: 0 0 25px rgba(233, 69, 96, 0.8);
+        }
+
+        .message {
+            font-size: 1.8rem;
+            line-height: 1.6;
+            margin: 2rem 0;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 4s;
+            color: #f1f1f1;
+        }
+
+        .signature {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-top: 2rem;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 4.5s;
+            color: #a5b1c2;
+        }
+
+        .music-control {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 5s;
+        }
+
+        .music-btn {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .music-btn:hover {
+            background: rgba(233, 69, 96, 0.3);
+            transform: scale(1.1);
+        }
+
+        .music-btn i {
+            font-size: 1.8rem;
+            color: #fff;
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.7;
+            animation: float 15s linear infinite;
+        }
+
+        /* Animations */
+        @keyframes drawHeart {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes pulseHeart {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px #e94560;
+            }
+            50% {
+                text-shadow: 0 0 25px #e94560;
+            }
+            100% {
+                text-shadow: 0 0 10px #e94560;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            .heart-container {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .message {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .heart-container {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .message {
+                font-size: 1.3rem;
+            }
+            
+            .signature {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements" id="floatingElements"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Happy Birthday</h1>
+        </div>
+        
+        <div class="heart-container">
+            <svg id="heart-svg" viewBox="0 0 100 100">
+                <path id="heart-path" d="M50,20 
+                         C60,10 80,15 80,30 
+                         C80,45 65,55 50,70 
+                         C35,55 20,45 20,30 
+                         C20,15 40,10 50,20 Z" />
+            </svg>
+            <div class="heart-center"></div>
+        </div>
+        
+        <div class="message">
+            Que cette journée soit aussi merveilleuse que toi. <br>
+            Que Dieu te comble de bonheur, de santé et de prospérité.
+        </div>
+        
+        <div class="signature">
+            Avec tout mon amour
+        </div>
+        
+        <div class="music-control">
+            <div class="music-btn" id="playBtn">
+                <i class="fas fa-play"></i>
+            </div>
+            <div class="music-btn" id="pauseBtn">
+                <i class="fas fa-pause"></i>
+            </div>
+        </div>
+    </div>
+    
+    <audio id="nasheed" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2023/10/23/audio_8c0a1b5d34.mp3?filename=arabic-wedding-nasheed-118380.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        // Création des éléments flottants
+        function createFloatingElements() {
+            const elementsContainer = document.getElementById('floatingElements');
+            const symbols = ['❤️', '✨', '🌸', '🎁', '🎂', '🎀', '💐'];
+            
+            for (let i = 0; i < 25; i++) {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                element.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                
+                // Position aléatoire
+                element.style.left = Math.random() * 100 + 'vw';
+                element.style.fontSize = (Math.random() * 1.5 + 1.5) + 'rem';
+                element.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                element.style.animationDelay = Math.random() * 5 + 's';
+                
+                elementsContainer.appendChild(element);
+            }
+        }
+        
+        // Gestion de la musique
+        const nasheed = document.getElementById('nasheed');
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        
+        playBtn.addEventListener('click', () => {
+            nasheed.play();
+            playBtn.style.display = 'none';
+            pauseBtn.style.display = 'flex';
+        });
+        
+        pauseBtn.addEventListener('click', () => {
+            nasheed.pause();
+            playBtn.style.display = 'flex';
+            pauseBtn.style.display = 'none';
+        });
+        
+        // Initialiser les éléments flottants
+        window.addEventListener('load', () => {
+            createFloatingElements();
+            // Masquer le bouton pause au démarrage
+            pauseBtn.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
